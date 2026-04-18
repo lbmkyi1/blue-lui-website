@@ -88,6 +88,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Profile Photo Carousel
+    const carouselImages = document.querySelectorAll('#profileCarousel img');
+    let currentImage = 0;
+    if (carouselImages.length > 1) {
+        setInterval(() => {
+            carouselImages[currentImage].classList.remove('active');
+            currentImage = (currentImage + 1) % carouselImages.length;
+            carouselImages[currentImage].classList.add('active');
+        }, 3000);
+    }
+
     // Scroll Reveal Animation
     const revealElements = document.querySelectorAll('.section-header, .about-content, .research-focus, .skill-category, .publication-card, .timeline-item, .beyond-card, .contact-content');
 
